@@ -39,7 +39,9 @@ const postVote = async (req, res) => {
   if (result.modifiedCount == 0)
     return res.status(400).json({ error: 'Failed to update poll' });
 
-  res.status(200).json({ message: 'Success' });
+  const updatedPoll = await Poll.findById(pollId);
+
+  res.status(200).json(updatedPoll);
 };
 
 module.exports = { getPolls, postPoll, postVote };

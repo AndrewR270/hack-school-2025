@@ -1,20 +1,28 @@
-const OptionSchema = new mongoose.Schema({
-  option: String,
-  count: Number,
-});
+const mongoose = require('mongoose');
 
-const PollSchema = new mongoose.Schema({
-  ownerId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
+const OptionSchema = new mongoose.Schema(
+  {
+    option: String,
+    count: Number,
   },
-  title: {
-    type: String,
-    required: true,
+  { _id: true }
+);
+
+const PollSchema = new mongoose.Schema(
+  {
+    ownerId: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    description: String,
+    options: [OptionSchema],
   },
-  description: String,
-  options: [OptionSchema],
-});
+  { id: true }
+);
 
 const Poll = mongoose.model('Poll', PollSchema);
 

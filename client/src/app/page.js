@@ -16,11 +16,11 @@ export default function Home() {
     getPolls();
   }, []);
 
-  if (!polls) return <h1 className='text-center'>Loading...</h1>;
+  if (!polls) return <h1 className="text-center">Loading...</h1>;
 
   return (
-    <div className='flex flex-col items-center mt-20'>
-      <h1 className='mb-5 font-bold text-3xl'>ACM POLLS</h1>
+    <div className="flex flex-col items-center mt-20">
+      <h1 className="mb-5 font-bold text-3xl">ACM POLLS</h1>
       {polls.map((poll) => {
         console.log(poll);
         return (
@@ -34,8 +34,8 @@ export default function Home() {
         );
       })}
       <Link
-        className='mt-10 text-center p-4 border border-neutral-800 rounded rounded-xl gap-2 bg-neutral-800 hover:border-white'
-        href='/create'
+        className="mt-10 text-center p-4 border border-white rounded rounded-xl gap-2 bg-orange-300 hover:border-neutral-800"
+        href="/create"
       >
         Create Poll
       </Link>

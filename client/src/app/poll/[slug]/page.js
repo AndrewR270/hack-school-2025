@@ -45,47 +45,47 @@ export default function PollPage() {
     getPoll();
   }, []);
 
-  if (!poll) return <h1 className='text-center'>Loading...</h1>;
+  if (!poll) return <h1 className="text-center">Loading...</h1>;
 
   return (
-    <div className='flex flex-col items-center mt-20 text-center'>
-      <Link className='text-3xl font-bold' href='/'>
+    <div className="flex flex-col items-center mt-20 text-center">
+      <Link className="text-3xl font-bold" href="/">
         ACM POLLS
       </Link>
-      <h1 className='center font-semi-bold text-2xl mt-5 mb-5'>{poll.title}</h1>
-      <p className='text-center'>{poll.totalVotes || 0} total votes</p>
-      <p className='text-center text-sm mb-5'>Poll created by {poll.ownerId}</p>
-      <p className='text-center text-lg mb-10'>{poll.description}</p>
-      <form onSubmit={handleSubmit} className='w-md text-left'>
+      <h1 className="center font-semi-bold text-2xl mt-5 mb-5">{poll.title}</h1>
+      <p className="text-center">{poll.totalVotes || 0} total votes</p>
+      <p className="text-center text-sm mb-5">Poll created by {poll.ownerId}</p>
+      <p className="text-center text-lg mb-10">{poll.description}</p>
+      <form onSubmit={handleSubmit} className="w-md text-left">
         {poll.options.map((option) => {
           return (
-            <div className='flex flex-row justify-between' key={option._id}>
+            <div className="flex flex-row justify-between" key={option._id}>
               <div>
                 <input
-                  type='radio'
+                  type="radio"
                   id={option._id}
-                  name='poll'
+                  name="poll"
                   value={option._id}
                   checked={selectedOption === option._id}
                   onChange={() => setSelectedOption(option._id)}
                 />
-                <label className='ml-2' htmlFor={option.option}>
+                <label className="ml-2" htmlFor={option.option}>
                   {option.option}
                 </label>
               </div>
               {voted ? (
-                <p className='text-right'>{option.count || 0} votes</p>
+                <p className="text-right">{option.count || 0} votes</p>
               ) : (
                 <></>
               )}
             </div>
           );
         })}
-        <div className='mt-5 mb-5 flex justify-center'>
+        <div className="mt-5 mb-5 flex justify-center">
           <button
-            type='submit'
+            type="submit"
             onSubmit={handleSubmit}
-            className='pl-2 pr-2 border border-neutral-800 rounded gap-2 bg-neutral-800 hover:border-white'
+            className="pl-2 pr-2 border border-white rounded gap-2 bg-orange-300 hover:border-neutral-800"
           >
             Vote
           </button>

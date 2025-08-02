@@ -41,16 +41,16 @@ export default function CreatePage() {
   };
 
   return (
-    <div className='flex flex-col items-center mt-20 text-center'>
-      <Link className='text-3xl font-bold mb-10' href='/'>
+    <div className="flex flex-col items-center mt-20 text-center">
+      <Link className="text-3xl font-bold mb-10" href="/">
         ACM POLLS
       </Link>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+      <form onSubmit={handleSubmit} className="flex flex-col items-start gap-4">
         <label>
           Title:
           <input
-            className='ml-2 bg-white text-black'
-            type='text'
+            className="ml-2 bg-white text-black border"
+            type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -59,8 +59,8 @@ export default function CreatePage() {
         <label>
           Description:
           <input
-            className='ml-2 bg-white text-black'
-            type='text'
+            className="ml-2 bg-white text-black border"
+            type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -69,8 +69,8 @@ export default function CreatePage() {
         <label>
           Owner:
           <input
-            className='ml-2 bg-white text-black'
-            type='text'
+            className="ml-2 bg-white text-black border"
+            type="text"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
           />
@@ -78,10 +78,10 @@ export default function CreatePage() {
 
         <label>Options:</label>
         {options.map((option, index) => (
-          <div key={index} className='flex gap-2 items-center'>
+          <div key={index} className="flex gap-2 items-center">
             <input
-              className='bg-white text-black flex-1'
-              type='text'
+              className="bg-white text-black flex-1 border"
+              type="text"
               placeholder={`Option ${index + 1}`}
               value={option}
               onChange={(e) => {
@@ -92,8 +92,8 @@ export default function CreatePage() {
             />
             {options.length > 1 && (
               <button
-                type='button'
-                className='text-red-600'
+                type="button"
+                className="text-red-600"
                 onClick={() => {
                   const newOptions = options.filter((_, i) => i !== index);
                   setOptions(newOptions);
@@ -105,16 +105,16 @@ export default function CreatePage() {
           </div>
         ))}
         <button
-          type='button'
-          className='bg-black text-sm py-1 px-2 rounded'
+          type="button"
+          className="bg-white border text-sm py-1 px-2 rounded"
           onClick={() => setOptions([...options, ''])}
         >
           + Add Option
         </button>
 
         <button
-          type='submit'
-          className='bg-blue-600 text-white rounded py-2 px-4'
+          type="submit"
+          className="bg-blue-600 text-white rounded py-2 px-4"
         >
           Submit
         </button>

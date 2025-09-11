@@ -1,7 +1,8 @@
-'use client';
-import { useEffect, useState } from 'react';
-import PollPreview from '@/components/PollPreview';
-import Link from 'next/link';
+"use client";
+import { useEffect, useState } from "react";
+import PollPreview from "@/components/PollPreview";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [polls, setPolls] = useState([]);
@@ -16,11 +17,11 @@ export default function Home() {
     getPolls();
   }, []);
 
-  if (!polls) return <h1 className="text-center">Loading...</h1>;
+  if (!polls) return <h1>Loading...</h1>;
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <h1 className="mb-5 font-bold text-3xl">ACM POLLS</h1>
+    <div id="main-content">
+      <h1 id="title-link">ACM POLLS</h1>
       {polls.map((poll) => {
         console.log(poll);
         return (
@@ -29,14 +30,11 @@ export default function Home() {
             title={poll.title}
             totalVotes={poll.totalVotes || 0}
             ownerId={poll.ownerId}
-            link={'/poll/' + poll._id}
+            link={"/poll/" + poll._id}
           ></PollPreview>
         );
       })}
-      <Link
-        className="mt-10 text-center p-4 border border-white rounded rounded-xl gap-2 bg-orange-300 hover:border-neutral-800"
-        href="/create"
-      >
+      <Link className={styles.createPollButton} href="/create">
         Create Poll
       </Link>
     </div>

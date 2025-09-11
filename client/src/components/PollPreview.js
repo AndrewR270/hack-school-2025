@@ -1,17 +1,19 @@
-'use client';
-import Link from 'next/link';
+"use client";
+import Link from "next/link";
+import styles from "./PollPreview.module.css";
 
+// 1a 👇
 export default function PollPreview({ title, totalVotes, ownerId, link }) {
   return (
-    <Link
-      href={link}
-      className="w-md flex flex-col p-4 border border-white hover:border-neutral-800 rounded-xl rounded gap-2 bg-orange-300 m-1"
-    >
-      <div className="flex justify-between">
-        <h2 className="font-semibold">{title}</h2>
+    <Link href={link} className={styles.PollLink}>
+      <div className={styles.infoContainer}>
+        {/* 1b 👇*/}
+        <h2 className={styles.pollTitle}>{title}</h2>
+        {/* 1c 👇*/}
         <p>{totalVotes} votes</p>
       </div>
-      <p className="text-sm text-white-500">{ownerId}</p>
+      {/* 1d 👇*/}
+      <p className={styles.ownerId}>{ownerId}</p>
     </Link>
   );
 }

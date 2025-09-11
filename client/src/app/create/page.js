@@ -1,13 +1,14 @@
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function CreatePage() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [owner, setOwner] = useState('');
-  const [options, setOptions] = useState(['']);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [owner, setOwner] = useState("");
+  const [options, setOptions] = useState([""]);
 
   const router = useRouter();
 
@@ -15,7 +16,7 @@ export default function CreatePage() {
     await e.preventDefault();
 
     if (!title || !description || !owner || !options) {
-      alert('Some fields missing.');
+      alert("Some fields missing.");
       return;
     }
 
@@ -24,10 +25,10 @@ export default function CreatePage() {
       count: 0,
     }));
 
-    const res = await fetch('http://localhost:3001/api/polls', {
-      method: 'POST',
+    const res = await fetch("http://localhost:3001/api/polls", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         title: title,
@@ -36,20 +37,20 @@ export default function CreatePage() {
         options: formattedOptions,
       }),
     });
-    alert('Poll created!');
-    router.push('/');
+    alert("Poll created!");
+    router.push("/");
   };
 
   return (
-    <div className="flex flex-col items-center mt-20 text-center">
-      <Link className="text-3xl font-bold mb-10" href="/">
+    <div id="main-content">
+      <Link id="title-link" href="/">
         ACM POLLS
       </Link>
-      <form onSubmit={handleSubmit} className="flex flex-col items-start gap-4">
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label>
           Title:
           <input
-            className="ml-2 bg-white text-black border"
+            className={styles.textInput}
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -59,7 +60,7 @@ export default function CreatePage() {
         <label>
           Description:
           <input
-            className="ml-2 bg-white text-black border"
+            className={styles.textInput}
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -69,7 +70,7 @@ export default function CreatePage() {
         <label>
           Owner:
           <input
-            className="ml-2 bg-white text-black border"
+            className={styles.textInput}
             type="text"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
@@ -78,9 +79,9 @@ export default function CreatePage() {
 
         <label>Options:</label>
         {options.map((option, index) => (
-          <div key={index} className="flex gap-2 items-center">
+          <div key={index} className={styles.optionsContainer}>
             <input
-              className="bg-white text-black flex-1 border"
+              className={styles.option}
               type="text"
               placeholder={`Option ${index + 1}`}
               value={option}
@@ -93,7 +94,7 @@ export default function CreatePage() {
             {options.length > 1 && (
               <button
                 type="button"
-                className="text-red-600"
+                className={styles.deleteButton}
                 onClick={() => {
                   const newOptions = options.filter((_, i) => i !== index);
                   setOptions(newOptions);
@@ -106,16 +107,13 @@ export default function CreatePage() {
         ))}
         <button
           type="button"
-          className="bg-white border text-sm py-1 px-2 rounded"
-          onClick={() => setOptions([...options, ''])}
+          className={styles.addOptionButton}
+          onClick={() => setOptions([...options, ""])}
         >
           + Add Option
         </button>
 
-        <button
-          type="submit"
-          className="bg-blue-600 text-white rounded py-2 px-4"
-        >
+        <button type="submit" className={styles.submitButton}>
           Submit
         </button>
       </form>

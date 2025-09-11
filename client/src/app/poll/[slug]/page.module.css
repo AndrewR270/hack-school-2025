@@ -1,0 +1,65 @@
+.pollTitle {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.totalVotes {
+  text-align: center;
+}
+
+.pollOwner {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.pollDescription {
+  text-align: center;
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.pollForm {
+  width: 28rem;
+  text-align: left;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.label {
+  margin-left: 0.5rem;
+}
+
+.voteCount {
+  text-align: right;
+}
+
+.submitContainer {
+  display: flex;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+.submitButton {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: #ffffff;
+  gap: 0.5rem;
+  background-color: var(--acm-orange);
+  cursor: default;
+}
+.submitButton:hover {
+  border-color: var(--neutral-800);
+  cursor: pointer;
+}

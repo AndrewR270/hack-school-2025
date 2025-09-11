@@ -1,0 +1,15 @@
+.createPollButton {
+  padding: 1rem;
+  margin-top: 2.5rem;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-color: #ffffff;
+  text-align: center;
+  background-color: var(--acm-orange);
+}
+
+.createPollButton:hover {
+  border-color: var(--neutral-800);
+}

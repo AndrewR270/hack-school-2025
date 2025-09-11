@@ -1,27 +1,28 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function PollPage() {
   const [poll, setPoll] = useState(null);
 
   const { slug } = useParams();
 
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState("");
   const [voted, setVoted] = useState(false);
 
   const handleSubmit = async (e) => {
     await e.preventDefault();
     if (!selectedOption) {
-      alert('Please select an option.');
+      alert("Please select an option.");
       return;
     }
-    const res = await fetch('http://localhost:3001/api/vote', {
-      method: 'POST',
+    const res = await fetch("http://localhost:3001/api/vote", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         pollId: slug,
@@ -45,21 +46,21 @@ export default function PollPage() {
     getPoll();
   }, []);
 
-  if (!poll) return <h1 className="text-center">Loading...</h1>;
+  if (!poll) return <h1>Loading...</h1>;
 
   return (
-    <div className="flex flex-col items-center mt-20 text-center">
-      <Link className="text-3xl font-bold" href="/">
+    <div id="main-content">
+      <Link id="title-link" href="/">
         ACM POLLS
       </Link>
-      <h1 className="center font-semi-bold text-2xl mt-5 mb-5">{poll.title}</h1>
-      <p className="text-center">{poll.totalVotes || 0} total votes</p>
-      <p className="text-center text-sm mb-5">Poll created by {poll.ownerId}</p>
-      <p className="text-center text-lg mb-10">{poll.description}</p>
-      <form onSubmit={handleSubmit} className="w-md text-left">
+      <h1 className={styles.pollTitle}>{poll.title}</h1>
+      <p className={styles.totalVotes}>{poll.totalVotes || 0} total votes</p>
+      <p className={styles.pollOwner}>Poll created by {poll.ownerId}</p>
+      <p className={styles.pollDescription}>{poll.description}</p>
+      <form onSubmit={handleSubmit} className={styles.pollForm}>
         {poll.options.map((option) => {
           return (
-            <div className="flex flex-row justify-between" key={option._id}>
+            <div className={styles.optionsContainer} key={option._id}>
               <div>
                 <input
                   type="radio"
@@ -69,23 +70,23 @@ export default function PollPage() {
                   checked={selectedOption === option._id}
                   onChange={() => setSelectedOption(option._id)}
                 />
-                <label className="ml-2" htmlFor={option.option}>
+                <label className={styles.label} htmlFor={option.option}>
                   {option.option}
                 </label>
               </div>
               {voted ? (
-                <p className="text-right">{option.count || 0} votes</p>
+                <p className={styles.voteCount}>{option.count || 0} votes</p>
               ) : (
                 <></>
               )}
             </div>
           );
         })}
-        <div className="mt-5 mb-5 flex justify-center">
+        <div className={styles.submitContainer}>
           <button
             type="submit"
             onSubmit={handleSubmit}
-            className="pl-2 pr-2 border border-white rounded gap-2 bg-orange-300 hover:border-neutral-800"
+            className={styles.submitButton}
           >
             Vote
           </button>

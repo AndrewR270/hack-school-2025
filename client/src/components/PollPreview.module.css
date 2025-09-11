@@ -1,0 +1,31 @@
+.PollLink {
+  width: 28rem;
+  display: flex;
+  padding: 1rem;
+  margin: 0.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-color: #ffffff;
+  background-color: var(--acm-orange);
+}
+
+.PollLink:hover {
+  border-color: var(--neutral-800);
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pollTitle {
+  font-weight: 600;
+}
+
+.ownerId {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

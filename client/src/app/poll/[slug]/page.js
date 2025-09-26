@@ -40,7 +40,7 @@ export default function PollPage() {
 
   useEffect(() => {
     async function getPoll() {
-      const res = await fetch(`http://localhost:3001/api/polls/id/${slug}`);
+      const res = await fetch(`${HOOK_URL}/api/polls/id/${slug}`);
       const data = await res.json();
       setPoll(data);
     }

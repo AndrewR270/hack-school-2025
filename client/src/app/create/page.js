@@ -11,6 +11,7 @@ export default function CreatePage() {
   const [options, setOptions] = useState([""]);
 
   const router = useRouter();
+  const HOOK_URL = process.env.NEXT_PUBLIC_HOOK_URL || "http://localhost:3001";
 
   const handleSubmit = async (e) => {
     await e.preventDefault();
@@ -25,7 +26,7 @@ export default function CreatePage() {
       count: 0,
     }));
 
-    const res = await fetch("http://localhost:3001/api/polls", {
+    const res = await fetch(`${HOOK_URL}/api/polls`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

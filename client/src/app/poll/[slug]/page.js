@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function PollPage() {
+  const HOOK_URL = process.env.NEXT_PUBLIC_HOOK_URL || "http://localhost:3001";
   const [poll, setPoll] = useState(null);
 
   const { slug } = useParams();
@@ -19,7 +20,7 @@ export default function PollPage() {
       alert("Please select an option.");
       return;
     }
-    const res = await fetch("http://localhost:3001/api/vote", {
+    const res = await fetch(`${HOOK_URL}/api/vote`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +40,7 @@ export default function PollPage() {
 
   useEffect(() => {
     async function getPoll() {
-      const res = await fetch(`http://localhost:3001/api/polls/id/${slug}`);
+      const res = await fetch(`${HOOK_URL}/api/polls/id/${slug}`);
       const data = await res.json();
       setPoll(data);
     }

@@ -5,21 +5,25 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const HOOK_URL = process.env.NEXT_PUBLIC_HOOK_URL || "http://localhost:3001";
-
-  const [polls, setPolls] = useState([]);
-
-  useEffect(() => {
-    async function getPolls() {
-      const res = await fetch(`${HOOK_URL}/api/polls/`);
-      const data = await res.json();
-      setPolls(data);
-    }
-
-    getPolls();
-  }, []);
-
-  if (!polls) return <h1>Loading...</h1>;
+  const polls = [
+    {
+      ownerId: "tyler",
+      title: "Hamburger or hotdog?",
+      description: "food for you",
+      options: [
+        {
+          option: "Hamburger",
+          count: 22,
+        },
+        {
+          option: "Hot dog",
+          count: 22,
+        },
+      ],
+      __v: 0,
+      totalVotes: 44,
+    },
+  ];
 
   return (
     <div id="main-content">

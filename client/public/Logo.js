@@ -1,9 +1,9 @@
 const Logo = () => {
   return (
     <svg
-      width="188"
+      width="61"
       height="61"
-      viewBox="0 0 188 61"
+      viewBox="0 0 61 61"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -23,7 +23,7 @@ const Logo = () => {
       </g>
       <defs>
         <clipPath id="clip0_2204_6">
-          <rect width="187.25" height="60.25" fill="white" />
+          <rect width="60.25" height="60.25" fill="white" />
         </clipPath>
       </defs>
     </svg>

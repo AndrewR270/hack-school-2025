@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
+import HomeButton from "@/components/HomeButton";
 
 export default function CreatePage() {
   const [title, setTitle] = useState("");
@@ -44,9 +45,7 @@ export default function CreatePage() {
 
   return (
     <div id="main-content">
-      <Link id="title-link" href="/">
-        ACM POLLS
-      </Link>
+      <HomeButton></HomeButton>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label>
           Title:

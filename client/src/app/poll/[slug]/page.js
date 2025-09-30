@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
+import HomeButton from "@/components/HomeButton";
 
 export default function PollPage() {
   const HOOK_URL = process.env.NEXT_PUBLIC_HOOK_URL || "http://localhost:3001";
@@ -51,9 +52,7 @@ export default function PollPage() {
 
   return (
     <div id="main-content">
-      <Link id="title-link" href="/">
-        ACM POLLS
-      </Link>
+      <HomeButton></HomeButton>
       <h1 className={styles.pollTitle}>{poll.title}</h1>
       <p className={styles.totalVotes}>{poll.totalVotes || 0} total votes</p>
       <p className={styles.pollOwner}>Poll created by {poll.ownerId}</p>

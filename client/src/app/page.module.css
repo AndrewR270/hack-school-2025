@@ -1,6 +1,7 @@
 .createPollButton {
   padding: 1rem;
   margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   gap: 0.5rem;
   border-radius: 0.25rem;
   border-radius: 0.75rem;
@@ -12,4 +13,13 @@
 
 .createPollButton:hover {
   border-color: var(--neutral-800);
+}
+
+@media (prefers-color-scheme: dark) {
+  .createPollButton {
+    border-color: black;
+  }
+  .createPollButton:hover {
+    border-color: white;
+  }
 }

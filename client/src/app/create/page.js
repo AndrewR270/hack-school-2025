@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
+import HomeButton from "@/components/HomeButton";
 
 export default function CreatePage() {
   // * Begin Activity 2a
@@ -46,10 +47,9 @@ export default function CreatePage() {
 
   return (
     <div id="main-content">
-      <Link id="title-link" href="/">
-        ACM POLLS
-      </Link>
+      <HomeButton></HomeButton>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
+        <h1 className={styles.pollTitle}>Create Poll</h1>
         {/* ACTIVITY 2b STARTS */}
 
         {/**

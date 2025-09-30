@@ -47,35 +47,38 @@ export default function CreatePage() {
     <div id="main-content">
       <HomeButton></HomeButton>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <label>
-          Title:
+        <h1 className={styles.pollTitle}>Create Poll</h1>
+        <div className={styles.formRow}>
+          <label>Title:</label>
           <input
             className={styles.textInput}
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label>
-          Description:
+        <div className={styles.formRow}>
+          <label>Description:</label>
           <input
             className={styles.textInput}
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-        </label>
+        </div>
 
-        <label>
-          Owner:
+        <div className={styles.formRow}>
+          <label>Owner:</label>
           <input
             className={styles.textInput}
             type="text"
             value={owner}
             onChange={(e) => setOwner(e.target.value)}
           />
-        </label>
+        </div>
+
+        <br></br>
 
         <label>Options:</label>
         {options.map((option, index) => (

@@ -63,3 +63,13 @@
   border-color: var(--neutral-800);
   cursor: pointer;
 }
+
+@media (prefers-color-scheme: dark) {
+  .submitButton {
+    border-color: black;
+    color: white;
+  }
+  .submitButton:hover {
+    border-color: white;
+  }
+}

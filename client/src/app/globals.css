@@ -19,6 +19,9 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+  button {
+    color: black;
+  }
 }
 
 body {

@@ -23,7 +23,7 @@ export default function Home() {
   if (!polls) return <h1>Loading...</h1>;
 
   return (
-    <div id="main-content">
+    <div id="main-content" className={styles.mainContent}>
       <HomeButton></HomeButton>
       {polls.map((poll) => {
         console.log(poll);

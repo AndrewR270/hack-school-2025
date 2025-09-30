@@ -15,6 +15,10 @@
   border-color: var(--neutral-800);
 }
 
+.mainContent .PollPreview {
+  background-color: #ff6f6f;
+}
+
 @media (prefers-color-scheme: dark) {
   .createPollButton {
     border-color: black;

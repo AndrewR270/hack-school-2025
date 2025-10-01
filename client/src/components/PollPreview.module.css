@@ -7,20 +7,25 @@
   gap: 0.5rem;
   border-radius: 0.75rem;
   border-width: 1px;
-  border-color: #ffffff;
-  background-color: var(--acm-orange);
+  border: 2px solid transparent;
+  border-color: var(--acm-orange);
 }
 
 .PollLink:hover {
-  border-color: var(--neutral-800);
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    var(--acm-gradient) border-box;
 }
 
 @media (prefers-color-scheme: dark) {
   .PollLink {
-    border-color: black;
+    border-color: var(--acm-orange);
   }
   .PollLink:hover {
     border-color: white;
+    border: 2px solid transparent;
+    background: linear-gradient(black, black) padding-box,
+      var(--acm-gradient) border-box;
   }
 }
 

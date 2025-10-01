@@ -18,7 +18,7 @@ export default function Home() {
     }
 
     getPolls();
-  }, []);
+  }, [HOOK_URL]);
 
   if (!polls) return <h1>Loading...</h1>;
 

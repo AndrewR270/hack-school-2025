@@ -49,8 +49,9 @@ export default function CreatePage() {
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <h1 className={styles.pollTitle}>Create Poll</h1>
         <div className={styles.formRow}>
-          <label>Title:</label>
+          <label htmlFor="titleInput">Title:</label>
           <input
+            id="titleInput"
             className={styles.textInput}
             type="text"
             value={title}
@@ -59,8 +60,9 @@ export default function CreatePage() {
         </div>
 
         <div className={styles.formRow}>
-          <label>Description:</label>
+          <label htmlFor="descriptionInput">Description:</label>
           <input
+            id="descriptionInput"
             className={styles.textInput}
             type="text"
             value={description}
@@ -69,8 +71,9 @@ export default function CreatePage() {
         </div>
 
         <div className={styles.formRow}>
-          <label>Owner:</label>
+          <label htmlFor="ownerInput">Owner:</label>
           <input
+            id="ownerInput"
             className={styles.textInput}
             type="text"
             value={owner}

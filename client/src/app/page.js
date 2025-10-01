@@ -23,6 +23,7 @@ export default function Home() {
       ],
       __v: 0,
       totalVotes: 44,
+      _id: 5,
     },
   ];
 

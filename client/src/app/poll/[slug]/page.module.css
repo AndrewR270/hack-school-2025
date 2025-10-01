@@ -60,7 +60,7 @@
   cursor: default;
 }
 .submitButton:hover {
-  border-color: var(--neutral-800);
+  background-color: var(--acm-orange-hover);
   cursor: pointer;
 }
 
@@ -68,8 +68,5 @@
   .submitButton {
     border-color: black;
     color: white;
-  }
-  .submitButton:hover {
-    border-color: white;
   }
 }

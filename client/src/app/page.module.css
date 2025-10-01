@@ -12,14 +12,11 @@
 }
 
 .createPollButton:hover {
-  border-color: var(--neutral-800);
+  background-color: var(--acm-orange-hover);
 }
 
 @media (prefers-color-scheme: dark) {
   .createPollButton {
     border-color: black;
-  }
-  .createPollButton:hover {
-    border-color: white;
   }
 }

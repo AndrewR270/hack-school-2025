@@ -68,5 +68,11 @@
   padding-right: 1rem;
   border-radius: 0.25rem;
   color: #ffffff;
-  background-color: #2563eb;
+  /* background-color: #2563eb; */
+  background-color: #62b0ff;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #5599dd;
 }

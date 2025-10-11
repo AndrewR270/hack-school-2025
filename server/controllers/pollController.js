@@ -1,29 +1,28 @@
 // TODO
-// ACTIVITY 2a - Implement getPolls function (return all polls)
+// ACTIVITY - Refactor all controller functions to handle requests!
+
 const Poll = require("../models/Poll");
 
+// add req, res to parameters
 const getPolls = async () => {
   const poll = await Poll.find();
   console.log("Returning polls list...");
-  return poll;
+  return poll; // refactor for 200 status code response
 };
 
-// ACTIVITY 2b - Implement getPoll function (get one poll by id)
-
+// replace id with req, res in parameters
 const getPoll = async (id) => {
+  // extract id from req.params
   const poll = await Poll.findById(id);
 
   console.log(`Returning poll ${id}`);
-  return poll;
+  return poll; // refactor for 200 status code response
 };
 
-// END ACTIVITY 2
-
-// TODO
-// ACTIVITY 3a - Implement postPoll function to create a new poll
-
+// replace {} parameter with req, res
 const postPoll = async ({ ownerId, title, description, options }) => {
-  if (!ownerId || !title || !options) return;
+  // extract poll information from req
+  if (!ownerId || !title || !options) return; // replace with 404 Error
 
   const poll = new Poll({
     ownerId: ownerId,
@@ -33,13 +32,13 @@ const postPoll = async ({ ownerId, title, description, options }) => {
   });
 
   await poll.save();
-  return poll;
+  return poll; // replace with status code 200 response
 };
 
-// ACTIVITY 3b - Implement postVote function to cast a vote
-
+// replace pollId and optionId with req, res
 const postVote = async ({ pollId, optionId }) => {
-  if (!pollId || !optionId) return;
+  // extract pollId and optionId from req
+  if (!pollId || !optionId) return; // update for 400 Error
 
   const updateOption = await Poll.updateOne(
     { _id: pollId, "options._id": optionId },
@@ -48,17 +47,13 @@ const postVote = async ({ pollId, optionId }) => {
     }
   );
 
-  if (updateOption.modifiedCount == 0) return "Error: failed to update poll";
+  if (updateOption.modifiedCount == 0) return "Error: failed to update poll"; // update for 400 Error
 
   const updatedPoll = await Poll.findById(pollId);
 
   console.log(`Vote cast for ${pollId} on option ${optionId}`);
 
-  return updatedPoll;
+  return updatedPoll; // update for status code 200 res
 };
-
-// ACTIVITY 3c - Implement module exports
-
-// END ACTIVITY 3
 
 module.exports = { getPolls, getPoll, postPoll, postVote };

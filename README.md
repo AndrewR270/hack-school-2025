@@ -4,11 +4,12 @@
 
 ## Preparing for Hack School
 
-1. Set up your development environment
+1. Set up your development environment by installing Git, making a GitHub account, installing VSCode, installing NodeJS and NPM, and forking this repository.
 2. Go to the HTML/CSS/JS workshop!
-3. ...
 
 ## Slides and Resources
+
+- To be posted as workshops occur
 
 ## Running this project
 

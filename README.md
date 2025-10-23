@@ -2,6 +2,8 @@
 
 [Website](https://hack.acmucsd.com/) | [Discord](https://discord.com/invite/AxCKxpuAUw) | [Hack Textbook](https://hack.acmucsd.com/hack-school)
 
+MongoDB: mongodb+srv://andrewrafal12_db_user:Tullius_Cicero62BC@acm-hack-school-2025.musrb8g.mongodb.net/acm-hack-school-2025?retryWrites=true&w=majority&appName=acm-hack-school-2025
+
 ## Preparing for Hack School
 
 1. Set up your development environment by installing Git, making a GitHub account, installing VSCode, installing NodeJS and NPM, and forking this repository.

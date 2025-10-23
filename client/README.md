@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+MongoDB: mongodb+srv://andrewrafal12_db_user:Tullius_Cicero62BC@acm-hack-school-2025.musrb8g.mongodb.net/acm-hack-school-2025?retryWrites=true&w=majority&appName=acm-hack-school-2025
+
 First, run the development server:
 
 ```bash
